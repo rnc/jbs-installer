@@ -1,0 +1,6 @@
+operators:
+  - channel: pipelines-1.11
+    name: openshift-pipelines-operator-rh
+    source: redhat-operators
+    sourceNamespace: openshift-marketplace
+    namespace: openshift-operators
