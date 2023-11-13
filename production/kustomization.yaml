@@ -8,12 +8,9 @@ resources:
 - https://github.com/redhat-appstudio/jvm-build-service/deploy/operator/config?ref=98b313aa1db6764623deb3abdc02f1e380bf41df
 - https://github.com/redhat-appstudio/jvm-build-service/deploy/operator/base?ref=98b313aa1db6764623deb3abdc02f1e380bf41df
 
-generatorOptions:
-  disableNameSuffixHash: true
-
-
 #
 # NB: From operator/overlays/dev-template
+# TODO: Need to update images to an official repo/tag.
 images:
   - name: hacbs-jvm-operator
     newName: quay.io/ncross/hacbs-jvm-controller
@@ -43,14 +40,15 @@ patches:
   target:
     kind: Task
     name: gradle
-- patch: |-
-    - op: add
-      path: "/spec/template/spec/containers/0/env"
-      value:
-        - name: S3_SYNC_ENABLED
-          value: "true"
-  target:
-    kind: Deployment
-    name: hacbs-jvm-operator
+# TODO: Default appest to be true anyway?
+# - patch: |-
+#     - op: add
+#       path: "/spec/template/spec/containers/0/env"
+#       value:
+#         - name: S3_SYNC_ENABLED
+#           value: "true"
+#   target:
+#     kind: Deployment
+#     name: hacbs-jvm-operator
 - path: config.yaml
 - path: system-config.yaml
