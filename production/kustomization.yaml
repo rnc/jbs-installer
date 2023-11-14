@@ -7,8 +7,8 @@ resources:
 - https://github.com/redhat-appstudio/jvm-build-service/deploy/base?ref=98b313aa1db6764623deb3abdc02f1e380bf41df
 - https://github.com/redhat-appstudio/jvm-build-service/deploy/operator/config?ref=98b313aa1db6764623deb3abdc02f1e380bf41df
 - https://github.com/redhat-appstudio/jvm-build-service/deploy/operator/base?ref=98b313aa1db6764623deb3abdc02f1e380bf41df
+# TODO Do we need the cluster monitoring from operator/overlays/dev-template? Could reference the files directly.
 
-#
 # NB: From operator/overlays/dev-template
 # TODO: Need to update images to an official repo/tag.
 images:
@@ -40,7 +40,7 @@ patches:
   target:
     kind: Task
     name: gradle
-# TODO: Default appest to be true anyway?
+# TODO:
 # - patch: |-
 #     - op: add
 #       path: "/spec/template/spec/containers/0/env"

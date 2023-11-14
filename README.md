@@ -5,6 +5,7 @@ This is an installer to deploy https://github.com/redhat-appstudio/jvm-build-ser
 
 To use this either set the environment variables as described below or replace their templated values within:
 
+ * pipelines/kustomization.yaml
  * production/config.yaml
  * secrets/*.yaml
 
