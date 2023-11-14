@@ -3,10 +3,10 @@ kind: Kustomization
 
 # TODO: How to update images to fixed release versions ; SHA/tag to be updated on each release
 resources:
-- https://github.com/redhat-appstudio/jvm-build-service/deploy/crds/base?ref=98b313aa1db6764623deb3abdc02f1e380bf41df
-- https://github.com/redhat-appstudio/jvm-build-service/deploy/base?ref=98b313aa1db6764623deb3abdc02f1e380bf41df
-- https://github.com/redhat-appstudio/jvm-build-service/deploy/operator/config?ref=98b313aa1db6764623deb3abdc02f1e380bf41df
-- https://github.com/redhat-appstudio/jvm-build-service/deploy/operator/base?ref=98b313aa1db6764623deb3abdc02f1e380bf41df
+- https://github.com/redhat-appstudio/jvm-build-service/deploy/crds/base?ref=7debedb49322ecd1b5b4009b71c2623412ffd30e
+- https://github.com/redhat-appstudio/jvm-build-service/deploy/base?ref=7debedb49322ecd1b5b4009b71c2623412ffd30e
+- https://github.com/redhat-appstudio/jvm-build-service/deploy/operator/config?ref=7debedb49322ecd1b5b4009b71c2623412ffd30e
+- https://github.com/redhat-appstudio/jvm-build-service/deploy/operator/base?ref=7debedb49322ecd1b5b4009b71c2623412ffd30e
 # TODO Do we need the cluster monitoring from operator/overlays/dev-template? Could reference the files directly.
 
 # NB: From operator/overlays/dev-template
