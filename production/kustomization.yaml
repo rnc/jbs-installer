@@ -11,12 +11,12 @@ resources:
 # NB: From operator/overlays/dev-template
 images:
   - name: hacbs-jvm-operator
-    newName: quay.io/redhat-appstudio/hacbs-jvm-controller
+    newName: quay.io/${JBS_QUAY_IMAGE}/hacbs-jvm-controller
     newTag: dev
 
 # NB: From overlays/dev-template
 patches:
-# TODO: Remove first (quaytoken) once https://github.com/redhat-appstudio/jvm-build-service/pull/915 is merged
+# TODO: Remove first (quaytoken) once https://github.com/${JBS_QUAY_IMAGE}/jvm-build-service/pull/915 is merged
 - patch: |-
     - op: replace
       path: /spec/template/spec/volumes/0/secret/optional
@@ -27,14 +27,14 @@ patches:
 - patch: |-
     - op: replace
       path: /spec/steps/2/image
-      value: quay.io/redhat-appstudio/hacbs-jvm-build-request-processor:dev
+      value: quay.io/${JBS_QUAY_IMAGE}/hacbs-jvm-build-request-processor:dev
   target:
     kind: Task
     name: maven
 - patch: |-
     - op: replace
       path: /spec/steps/2/image
-      value: quay.io/redhat-appstudio/hacbs-jvm-build-request-processor:dev
+      value: quay.io/${JBS_QUAY_IMAGE}/hacbs-jvm-build-request-processor:dev
   target:
     kind: Task
     name: gradle

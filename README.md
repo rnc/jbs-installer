@@ -36,6 +36,7 @@ To support private repositories set:
 export JBS_GIT_CREDENTIALS='https://$GITHUB_E2E_ORGANIZATION:$GITHUB_TOKEN@github.com'
 ```
 
+By default, the JBS images are pulled from the redhat-appstudio organization. This may be overridden by setting `JBS_QUAY_IMAGE`.
 
 
 
