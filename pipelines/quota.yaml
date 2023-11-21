@@ -10,5 +10,5 @@ spec:
       count/pods: "20"
   selector:
     annotations:
-      openshift.io/requester: jvm-build-workloads
+      openshift.io/requester: ${JBS_WORKER_NAMESPACE}
     labels: null

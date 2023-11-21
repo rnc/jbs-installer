@@ -5,7 +5,6 @@ This is an installer to deploy https://github.com/redhat-appstudio/jvm-build-ser
 
 To use this either set the environment variables as described below or replace their templated values within:
 
- * pipelines/kustomization.yaml
  * production/config.yaml
  * secrets/*.yaml
 
@@ -38,6 +37,6 @@ export JBS_GIT_CREDENTIALS='https://$GITHUB_E2E_ORGANIZATION:$GITHUB_TOKEN@githu
 
 By default, the JBS images are pulled from the redhat-appstudio organization. This may be overridden by setting `JBS_QUAY_IMAGE`.
 
-
+The 'worker' namespace (`jvm-build-workloads`) may be customized by setting `JBS_WORKER_NAMESPACE`. Note that the namespace configuration is also referenced in namespace/namespace.yaml and pipelines/quota.yaml as well as the files referenced above.
 
 Once everything has been configured run `./deploy.sh`. This will use kustomize, envsubst and kubectl to deploy to the current instance. This has been tested with kubectl v1.2.6 and kustomize v5.2.1.
