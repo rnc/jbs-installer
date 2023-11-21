@@ -2,10 +2,10 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-- https://github.com/redhat-appstudio/jvm-build-service/deploy/crds/base?ref=7debedb49322ecd1b5b4009b71c2623412ffd30e
-- https://github.com/redhat-appstudio/jvm-build-service/deploy/base?ref=7debedb49322ecd1b5b4009b71c2623412ffd30e
-- https://github.com/redhat-appstudio/jvm-build-service/deploy/operator/config?ref=7debedb49322ecd1b5b4009b71c2623412ffd30e
-- https://github.com/redhat-appstudio/jvm-build-service/deploy/operator/base?ref=7debedb49322ecd1b5b4009b71c2623412ffd30e
+- https://github.com/redhat-appstudio/jvm-build-service/deploy/crds/base?ref=3fd26d5925e09eb41d146bc271333f3510a00cb7
+- https://github.com/redhat-appstudio/jvm-build-service/deploy/base?ref=3fd26d5925e09eb41d146bc271333f3510a00cb7
+- https://github.com/redhat-appstudio/jvm-build-service/deploy/operator/config?ref=3fd26d5925e09eb41d146bc271333f3510a00cb7
+- https://github.com/redhat-appstudio/jvm-build-service/deploy/operator/base?ref=3fd26d5925e09eb41d146bc271333f3510a00cb7
 # TODO Do we need the cluster monitoring from operator/overlays/dev-template? Could reference the files directly.
 
 # NB: From operator/overlays/dev-template
