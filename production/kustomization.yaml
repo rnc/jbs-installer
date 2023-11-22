@@ -1,0 +1,69 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- https://github.com/redhat-appstudio/jvm-build-service/deploy/crds/base?ref=a674dd351ed2acdfa8855aae34539c90a308d472
+- https://github.com/redhat-appstudio/jvm-build-service/deploy/base?ref=a674dd351ed2acdfa8855aae34539c90a308d472
+- https://github.com/redhat-appstudio/jvm-build-service/deploy/operator/config?ref=a674dd351ed2acdfa8855aae34539c90a308d472
+- https://github.com/redhat-appstudio/jvm-build-service/deploy/operator/base?ref=a674dd351ed2acdfa8855aae34539c90a308d472
+- https://github.com/redhat-appstudio/jvm-build-service/deploy/console/base?ref=a674dd351ed2acdfa8855aae34539c90a308d472
+# TODO Do we need the cluster monitoring from operator/overlays/dev-template? Could reference the files directly.
+
+# NB: From operator/overlays/dev-template
+images:
+  - name: hacbs-jvm-operator
+    newName: quay.io/${JBS_QUAY_IMAGE}/hacbs-jvm-controller
+    newTag: dev
+  - name: hacbs-jvm-console
+    newName: quay.io/${JBS_QUAY_IMAGE}/jbs-management-console
+    newTag: dev
+
+# NB: From operator/overlays/dev-template and console/overlays/dev-template
+patches:
+# TODO: Remove secret (quaytoken) patch once https://github.com/${JBS_QUAY_IMAGE}/jvm-build-service/pull/915 is merged
+- patch: |-
+    - op: replace
+      path: /spec/template/spec/containers/0/imagePullPolicy
+      value: Always
+  target:
+    kind: Deployment
+    name: hacbs-jvm-operator
+- patch: |-
+    - op: replace
+      path: /spec/template/spec/volumes/0/secret/optional
+      value: true
+  target:
+    kind: Deployment
+    name: hacbs-jvm-operator
+- patch: |-
+    - op: replace
+      path: /spec/template/spec/containers/0/imagePullPolicy
+      value: Always
+  target:
+    kind: Deployment
+    name: hacbs-jvm-console
+- patch: |-
+    - op: replace
+      path: /spec/steps/2/image
+      value: quay.io/${JBS_QUAY_IMAGE}/hacbs-jvm-build-request-processor:dev
+  target:
+    kind: Task
+    name: maven
+- patch: |-
+    - op: replace
+      path: /spec/steps/2/image
+      value: quay.io/${JBS_QUAY_IMAGE}/hacbs-jvm-build-request-processor:dev
+  target:
+    kind: Task
+    name: gradle
+- patch: |-
+    - op: add
+      path: "/spec/template/spec/containers/0/env"
+      value:
+        - name: S3_SYNC_ENABLED
+          value: "true"
+  target:
+    kind: Deployment
+    name: hacbs-jvm-operator
+- path: config.yaml
+- path: system-config.yaml
