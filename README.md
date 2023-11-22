@@ -39,4 +39,4 @@ By default, the JBS images are pulled from the redhat-appstudio organization. Th
 
 The 'worker' namespace (`jvm-build-workloads`) may be customized by setting `JBS_WORKER_NAMESPACE`. Note that the namespace configuration is also referenced in namespace/namespace.yaml and pipelines/quota.yaml as well as the files referenced above.
 
-Once everything has been configured run `./deploy.sh`. This will use kustomize, envsubst and kubectl to deploy to the current instance. This has been tested with kubectl v1.2.6 and kustomize v5.2.1.
+Once everything has been configured run `./deploy.sh`. This will use kustomize, envsubst and kubectl to deploy to the current instance. This has been tested with kubectl v1.28.4 and kustomize v5.2.1.
