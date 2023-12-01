@@ -2,11 +2,11 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-- https://github.com/redhat-appstudio/jvm-build-service/deploy/crds/base?ref=a674dd351ed2acdfa8855aae34539c90a308d472
-- https://github.com/redhat-appstudio/jvm-build-service/deploy/base?ref=a674dd351ed2acdfa8855aae34539c90a308d472
-- https://github.com/redhat-appstudio/jvm-build-service/deploy/operator/config?ref=a674dd351ed2acdfa8855aae34539c90a308d472
-- https://github.com/redhat-appstudio/jvm-build-service/deploy/operator/base?ref=a674dd351ed2acdfa8855aae34539c90a308d472
-- https://github.com/redhat-appstudio/jvm-build-service/deploy/console/base?ref=a674dd351ed2acdfa8855aae34539c90a308d472
+- https://github.com/redhat-appstudio/jvm-build-service/deploy/crds/base?ref=51e82b4a2a0bc6d234627b4374b7e7126f8474aa
+- https://github.com/redhat-appstudio/jvm-build-service/deploy/base?ref=51e82b4a2a0bc6d234627b4374b7e7126f8474aa
+- https://github.com/redhat-appstudio/jvm-build-service/deploy/operator/config?ref=51e82b4a2a0bc6d234627b4374b7e7126f8474aa
+- https://github.com/redhat-appstudio/jvm-build-service/deploy/operator/base?ref=51e82b4a2a0bc6d234627b4374b7e7126f8474aa
+- https://github.com/redhat-appstudio/jvm-build-service/deploy/console/base?ref=51e82b4a2a0bc6d234627b4374b7e7126f8474aa
 # TODO Do we need the cluster monitoring from operator/overlays/dev-template? Could reference the files directly.
 
 # NB: From operator/overlays/dev-template
