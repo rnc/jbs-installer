@@ -2,12 +2,14 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-- https://github.com/redhat-appstudio/jvm-build-service/deploy/crds/base?ref=bcb1adac8e57b5f874940e0b9f075962070b5e00
-- https://github.com/redhat-appstudio/jvm-build-service/deploy/base?ref=bcb1adac8e57b5f874940e0b9f075962070b5e00
-- https://github.com/redhat-appstudio/jvm-build-service/deploy/operator/config?ref=bcb1adac8e57b5f874940e0b9f075962070b5e00
-- https://github.com/redhat-appstudio/jvm-build-service/deploy/operator/base?ref=bcb1adac8e57b5f874940e0b9f075962070b5e00
-- https://github.com/redhat-appstudio/jvm-build-service/deploy/console/base?ref=bcb1adac8e57b5f874940e0b9f075962070b5e00
+- https://github.com/redhat-appstudio/jvm-build-service/deploy/crds/base?ref=f4b1dce266fb94fbbbaa8a183b8ee9e416a34e7e
+- https://github.com/redhat-appstudio/jvm-build-service/deploy/base?ref=f4b1dce266fb94fbbbaa8a183b8ee9e416a34e7e
+- https://github.com/redhat-appstudio/jvm-build-service/deploy/operator/config?ref=f4b1dce266fb94fbbbaa8a183b8ee9e416a34e7e
+- https://github.com/redhat-appstudio/jvm-build-service/deploy/operator/base?ref=f4b1dce266fb94fbbbaa8a183b8ee9e416a34e7e
 # TODO Do we need the cluster monitoring from operator/overlays/dev-template? Could reference the files directly.
+#- https://github.com/redhat-appstudio/jvm-build-service/deploy/operator/overlays/dev-template?ref=f4b1dce266fb94fbbbaa8a183b8ee9e416a34e7e
+#- https://github.com/redhat-appstudio/jvm-build-service/deploy/console/base?ref=f4b1dce266fb94fbbbaa8a183b8ee9e416a34e7e
+- quota.yaml
 
 # NB: From operator/overlays/dev-template
 images:
@@ -39,7 +41,7 @@ patches:
       path: "/spec/template/spec/containers/0/env"
       value:
         - name: S3_SYNC_ENABLED
-          value: "true"
+          value: "false"
   target:
     kind: Deployment
     name: hacbs-jvm-operator
